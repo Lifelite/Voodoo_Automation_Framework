@@ -6,18 +6,17 @@ def test_element_addremove(page: Page):
 
     # Quick Page Validation
     Validate.text("Add/Remove Elements", page)
-    # expect(page.get_by_text("Add/Remove Elements")).to_be_visible()
-
-    add_element_button = page.get_by_role("button", name="Add Element")
-    expect(add_element_button).to_be_enabled()
+    Validate.button_enabled("Add Element", page)
 
     # Validate Elements can be added
     delete_button = page.get_by_role("button", name="Delete")
     i = 0
     while i < 10:
         assert delete_button.count() == i
-        add_element_button.click()
+        Interact.click_button("Add Element", page)
         i = i + 1
+
+    # Validate Elements can be removed
 
     delete_count = delete_button.count()
     assert delete_count == 10
