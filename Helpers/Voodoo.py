@@ -34,6 +34,10 @@ class Validate:
         element.to_be_visible()
         element.to_be_enabled()
 
+    @classmethod
+    def text_matches(cls, locator, text, page: Page):
+        expect(locator).to_have_text(text)
+
 
 class Interact:
 
