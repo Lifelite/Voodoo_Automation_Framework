@@ -13,7 +13,7 @@ def test_element_addremove(page: Page):
     i = 0
     while i < 10:
         assert delete_button.count() == i
-        Interact.click_button("Add Element", page)
+        Interact.click_button("Add Element")
         i = i + 1
 
     # Validate Elements can be removed

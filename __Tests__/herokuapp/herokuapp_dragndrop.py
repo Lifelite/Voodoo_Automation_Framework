@@ -1,8 +1,9 @@
 from Helpers.Voodoo import *
 
 
-def drag_and_drop_test(page: Page):
+def test_drag_and_drop(page: Page):
     page.goto("https://the-internet.herokuapp.com/drag_and_drop")
+
     Validate.text("Drag and Drop", page)
 
     # Identify elements and assign them to variable
@@ -22,7 +23,7 @@ def drag_and_drop_test(page: Page):
     # Validate elements have changed
 
     Validate.text_matches(source, "B", page)
-    Validate.text_matches(source, "A", page)
+    Validate.text_matches(target, "A", page)
 
     # Other method for drag and drop using positions:
     # relative position:
