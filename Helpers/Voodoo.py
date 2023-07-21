@@ -7,11 +7,10 @@ import json
 
 
 class Validate:
-    page: Page
 
     @classmethod
-    def text(cls, etext):
-        element = expect(cls.page.get_by_text(etext))
+    def text(cls, etext, page):
+        element = expect(page.get_by_text(etext))
         element.to_be_visible()
 
     @classmethod
@@ -48,11 +47,10 @@ class Validate:
 
 
 class Interact:
-    page: Page
 
     @classmethod
-    def fill_by_label(cls, label, fill):
-        cls.page.get_by_label(label).fill(fill)
+    def fill_by_label(cls, label, fill, page: Page):
+        page.get_by_label(label).fill(fill)
 
     @classmethod
     def click_button(cls, button, page: Page):
