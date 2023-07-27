@@ -6,7 +6,11 @@ import Data
 import json
 
 
-class Validate:
+class Validate():
+
+    def __init__(self, page, impl_obj: Any):
+        super().__init__(impl_obj)
+        self.page = page
 
     @classmethod
     def text(cls, etext, page):
