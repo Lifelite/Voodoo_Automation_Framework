@@ -8,10 +8,6 @@ import json
 
 class Validate:
 
-    def __init__(self, page, impl_obj: Any):
-        super().__init__(impl_obj)
-        self.page = page
-
     @classmethod
     def text(cls, etext, page):
         element = expect(page.get_by_text(etext))
@@ -71,6 +67,32 @@ class Interact:
     @classmethod
     def fill_by_role(cls, role, name, fill, page: Page):
         page.get_by_role(role, name=name).fill(fill)
+
+    @classmethod
+    def click_by_role(cls, role, name, page: Page):
+        page.get_by_role(role, name=name).click()
+
+    @classmethod
+    def fill_by_id(cls, id, fill, page: Page):
+        locator = page.locator('id=' + id)
+        locator.fill(fill)
+
+    @classmethod
+    def fill_by_name(cls, name, fill, page: Page):
+        locator = page.locator('name=' + name)
+        locator.fill(fill)
+
+    @classmethod
+    def fill_by_placeholder(cls, name, fill, page: Page):
+        page.get_by_placeholder(name).fill(fill)
+
+    @classmethod
+    def fill_by_locator(cls, name, fill, page: Page):
+        page.locator(name).fill(fill)
+
+    @classmethod
+    def click_by_label(cls, name, page: Page):
+        page.get_by_label(name).click()
 
 
 class JsonParse:
