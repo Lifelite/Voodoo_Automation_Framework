@@ -2,17 +2,19 @@ from Helpers.Voodoo import *
 
 
 def test_element_addremove(page: Page):
-    page.goto("https://the-internet.herokuapp.com/add_remove_elements/")
+    validate = Validate(page)
+    interact = Interact(page)
+    interact.navigate_to_url("https://the-internet.herokuapp.com/add_remove_elements/")
 
     # Quick Page Validation
-    Validate.text("Add/Remove Elements", page)
-    Validate.button_enabled("Add Element", page)
+    validate.text("Add/Remove Elements")
+    validate.button_enabled("Add Element")
 
     # Validate Elements can be added
     delete_button = page.get_by_role("button", name="Delete")
     for i in range(10):
         assert delete_button.count() == i
-        Interact.click_button("Add Element", page)
+        interact.click_button("Add Element")
 
     # Validate Elements can be removed
 
