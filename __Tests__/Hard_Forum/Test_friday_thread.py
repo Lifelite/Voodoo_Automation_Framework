@@ -4,26 +4,28 @@ from Helpers.Voodoo import *
 
 
 def test_post_friday_thread(page: Page):
+    validate = Validate(page)
+    interact = Interact(page)
     # Nav to page
-    page.goto("https://hardforum.com/")
+    interact.navigate_to_url("https://hardforum.com/")
 
     # Validate page load
 
     # Log in with user
     uName = "lifelite"
-    uPassword = secret1
+    uPassword = ""
 
-    Interact.click_by_role("link", "Log in", page)
-    Interact.fill_by_label("Your name or email address", uName, page)
-    Interact.click_by_label("Password", page)
-    Interact.fill_by_label("Password", uPassword, page)
-    Interact.click_button("Log in", page)
+    interact.click_by_role("link", "Log in", page)
+    interact.fill_by_label("Your name or email address", uName, page)
+    interact.click_by_label("Password", page)
+    interact.fill_by_label("Password", uPassword, page)
+    interact.click_button("Log in", page)
 
-    page.goto("https://hardforum.com/forums/general-mayhem.106/")
-    Validate.url_matches("https://hardforum.com/forums/general-mayhem.106/", page)
+    interact.navigate_to_url("https://hardforum.com/forums/general-mayhem.106/")
+    validate.url_matches("https://hardforum.com/forums/general-mayhem.106/")
 
-    Interact.click_by_role("link", "Post thread", page)
-    Validate.url_matches("https://hardforum.com/forums/general-mayhem.106/post-thread", page)
+    interact.click_by_role("link", "Post thread")
+    validate.url_matches("https://hardforum.com/forums/general-mayhem.106/post-thread")
 
     # Fill Thread Title
 
@@ -32,7 +34,7 @@ def test_post_friday_thread(page: Page):
     c_date = datetime.today()
     f_date = c_date.strftime("%m/%d/%y")
     thread_name = ["Friday ", f_date]
-    Interact.fill_by_placeholder("Thread title", thread_name, page)
-    Interact.fill_by_locator(".fr-element", thread_body, page)
+    interact.fill_by_placeholder("Thread title", thread_name)
+    interact.fill_by_locator(".fr-element", thread_body)
 
-    Interact.click_button("Post thread", page)
+    interact.click_button("Post thread")

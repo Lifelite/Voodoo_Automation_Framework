@@ -2,19 +2,22 @@ from Helpers.Voodoo import *
 
 
 def test_herokuapp_login(page: Page):
-    page.goto("https://the-internet.herokuapp.com/login")
+    validate = Validate(page)
+    interact = Interact(page)
+
+    interact.navigate_to_url("https://the-internet.herokuapp.com/login")
 
     # Quick Page Validation
 
-    Validate.title("The Internet", page)
-    Validate.text("Login Page", page)
+    validate.title("The Internet")
+    validate.text("Login Page")
 
     # Fill fields
 
-    Interact.fill_by_label("Username", "tomsmith", page)
-    Interact.fill_by_label("Password", "SuperSecretPassword!", page)
-    Interact.click_button("Login", page)
+    interact.fill_by_label("Username", "tomsmith")
+    interact.fill_by_label("Password", "SuperSecretPassword!")
+    interact.click_button("Login")
 
     # Validate Login was Successful
 
-    Validate.id("flash", page)
+    validate.id("flash")
