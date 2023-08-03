@@ -44,7 +44,7 @@ class Validate:
 
 class Interact:
 
-    def __init__(self, page: Page):
+    def __init__(self, page):
         self.page = page
 
     def fill_by_label(self, label, fill):
