@@ -13,7 +13,7 @@ to showcase proper examples of how the framework can (and maybe should) be struc
 ## Installation
 Some day this will be implemented as a package, but for now this code can cloned. 
 
-### Prerequisits
+### Prerequisites
 [Python](https://www.python.org/downloads/)
 Download python for your specific OS and follow instructions for adding python to PATH in your system's environment variables.
 
