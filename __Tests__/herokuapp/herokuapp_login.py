@@ -1,16 +1,16 @@
-import time
-
 from Helpers.VD_Connectors import Database
 from Helpers.Voodoo import *
 from Helpers.MySQL import Query
-import time
+
 
 
 def test_herokuapp_login(page: Page):
     validate = Validate(page)
     interact = Interact(page)
     q = Query(Database)
+
     # Retrieve Test Data using MySQL
+
     creds = q.credentials("herokuapp")
     uname = creds[0]
     upassword = creds[1]

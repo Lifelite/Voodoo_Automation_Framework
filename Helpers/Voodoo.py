@@ -76,6 +76,10 @@ class Interact:
     def fill_by_placeholder(self, name, fill):
         self.page.get_by_placeholder(name).fill(fill)
 
+    def fill_by_class(self, cl, fill):
+        self.page.locator()
+        self.page.get_by_class(cl).fill(fill)
+
     def fill_by_locator(self, name, fill):
         self.page.locator(name).fill(fill)
 
@@ -85,26 +89,43 @@ class Interact:
     def navigate_to_url(self, url):
         self.page.goto(url)
 
+    def new_browser_window(self):
+        context = browser.new_context()
 
-class JsonParse:
+    def click_by_placeholder(self, name):
+        self.page.get_by_placeholder(name).click()
 
-    @classmethod
-    def load_data(cls, data):
-        json.loads("testdata.json")
+    def type_with_keyboard(self, typing):
+        self.page.keyboard.type(typing)
 
 
-class API:
+class Authentication:
 
-    @classmethod
-    def api_push(cls, url, call, data, request: APIRequest):
-        with sync_playwright() as p:
-            api_request_context = p.request.new_context(
-                base_url=url)
-        response = api_request_context.post(
-            call,
-            headers={
-                "Accept": "application/json"
-            },
-            data=data
-        )
-        assert response.ok
+    # def __init__(self):
+
+    def save_state(self):
+        storage = context.storage_state(path="Data/state.json")
+
+
+# class JsonParse:
+#
+#     @classmethod
+#     def load_data(cls, data):
+#         json.loads("testdata.json")
+#
+#
+# class API:
+#
+#     @classmethod
+#     def api_push(cls, url, call, data, request: APIRequest):
+#         with sync_playwright() as p:
+#             api_request_context = p.request.new_context(
+#                 base_url=url)
+#         response = api_request_context.post(
+#             call,
+#             headers={
+#                 "Accept": "application/json"
+#             },
+#             data=data
+#         )
+#         assert response.ok
