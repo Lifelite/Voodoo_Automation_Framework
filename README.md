@@ -79,7 +79,9 @@ def test_herokuapp_login(page: Page):
 
 ## Contributions and Usage
 
-Currently I am just working on this by myself, but eventually I will be open to input and contributions.  
+Currently I am just working on this by myself, but definitely open to input and suggestions!  I believe this framwork can be a spring
+board for anyone that's looking to learn or implement Playwright in whatever application they need it for.  There's a LOT of great things
+I have on the horizon, such as plugin support, multilanguage support, etc.
 This is a current work in progress, so I don't believe this is quite for others to start utilizing, but I'm always open to feedback!
 
 ## License
