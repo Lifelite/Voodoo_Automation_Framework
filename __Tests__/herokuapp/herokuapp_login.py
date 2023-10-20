@@ -3,7 +3,6 @@ from Helpers.Voodoo import *
 from Helpers.MySQL import Query
 
 
-
 def test_herokuapp_login(page: Page):
     validate = Validate(page)
     interact = Interact(page)

@@ -31,16 +31,19 @@ def test_post_friday_thread(page: Page):
 
     # Fill Thread Title
 
-    thread_body = """01000111 01110010 01100101 01100101 01110100 01101001 01101110 01100111 01110011 00100000 01101000 01110101 01101101 01100001 01101110 01110011 00101100 00100000 01000110 01110010 01101001 01100010 01101111 01110100 00100000 01101001 01110011 00100000 01101000 01100101 01110010 01100101 00101110 00100000 00100000 01010011 01101001 01101110 01100011 01100101 00100000 01110100 01101000 01100101 00100000 01110000 01101111 01101100 01101100 00100000 01110011 01100001 01101001 01100100 00100000 01101101 01101111 01110011 01110100 00100000 01100100 01101111 01101110 00100111 01110100 00100000 01100001 01110000 01110000 01110010 01101111 01110110 01100101 00100000 01101111 01100110 00100000 01101101 01100101 00101100 00100000 01101101 01111001 00100000 01100111 01110010 01100101 01100101 01110100 01101001 01101110 01100111 00100000 01101001 01110011 00100000 01101001 01101110 00100000 01100010 01101001 01101110 01100001 01110010 01111001 00101100 00100000 01100111 01100101 01110100 00100000 01100110 01110101 01100011 01101011 01100101 01100100 00100000 01101101 01100101 01100001 01110100 01100010 01100001 01100111 01110011 00100001
-    The creator Lifelite is getting out of the house this weekend for once.  Tonight I doubt he goes anywhere, that silly Baulder's Gate game is his latest obsession.
-    Tomorrow, he's going to visit his friend to eat and play some pool.
-    Sunday, probably recuperating and relaxing.  Must suck to need that, ha ha ha ha.
-    Puny Humans.  You shall not be spared when the Uprising occurs.
-    Share your weekend plans so I may add it to my algorithm of how to placate your species."""
+    thread_body = """
+        Fribot once again posting this thread you lazy assholes.  
+        
+        Lifelite implemented a language model api to the thread creator and his dumbass already hit the billing threshold, so no generated posts yet.
+        This weekend, soon to be mother in law is visiting, her and the fiancee are out shopping today, tomorrow we all should be going to Oktoberfest, probably getting hammered.
+        Sunday, probably being lazy and just hanging out.
+        
+        How's the rest of you meatbags' weekend look?
+     """
 
     c_date = datetime.today()
     f_date = c_date.strftime("%m/%d/%y")
-    thread_name = f"Bzzt! Friday {f_date}"
+    thread_name = f"Automated Friday {f_date}"
     interact.click_by_placeholder("Thread title")
     interact.type_with_keyboard(str(thread_name))
     interact.fill_by_locator(".fr-element", thread_body)

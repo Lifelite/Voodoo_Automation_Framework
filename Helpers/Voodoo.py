@@ -41,6 +41,10 @@ class Validate:
     def url_matches(self, url):
         expect(self.page).to_have_url(url)
 
+    def button_text(self, text):
+        element = expect(self.page.get_by_role("button", name=text))
+        element.to_have_text(text)
+
 
 class Interact:
 
@@ -98,6 +102,21 @@ class Interact:
     def type_with_keyboard(self, typing):
         self.page.keyboard.type(typing)
 
+    def select_radio_by_label(self, name):
+        self.page.get_by_label(name).check()
+
+
+class Record:
+
+    def __init__(self, page, datetime):
+        self.page = page
+        self.datetime = datetime
+
+    # def screenshot(self):
+    #     # with open(str(self.datetime.now())) as file:
+    #
+    #     self.page.screenshot(path=f"../screenshots/{str(self.datetime.now())}", full_page=True)
+
 
 class Authentication:
 
@@ -105,7 +124,6 @@ class Authentication:
 
     def save_state(self):
         storage = context.storage_state(path="Data/state.json")
-
 
 # class JsonParse:
 #

@@ -11,7 +11,7 @@ def test_element_addremove(page: Page):
     validate.button_enabled("Add Element")
 
     # Validate Elements can be added
-    delete_button = page.get_by_role("button", name="Delete")
+    delete_button = validate.page.get_by_role("button", name="Delete")
     for i in range(10):
         assert delete_button.count() == i
         interact.click_button("Add Element")
